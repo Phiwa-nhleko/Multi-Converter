@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  httpRequestAddress:{
+    currencyLookUpUrl:"https://api.ratesapi.io/api/latest",
+    legnthLookUpUrl:"assets/local_data/meter_base_conversion_ref.json"
+  }
 };
 
 /*

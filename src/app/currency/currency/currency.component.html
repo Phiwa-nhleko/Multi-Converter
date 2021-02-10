@@ -1,0 +1,38 @@
+<section class = "currency-section" fxLayout="column" fxLayoutAlign="center">
+    <mat-card  fxFlex.xs="100%" fxFlex="300px" >
+        <mat-card-title fxLayoutAlign="center" fxLayoutAlign.gt-sm="flex-start">Currncy Converter</mat-card-title>
+        <mat-card-content  fxLayout="column">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutAlign="center" fxLayoutGap="10px">
+                <mat-form-field appearance="legacy">
+                    <span matPrefix>{{(getFromCurrencySymbol())}}</span>
+                    <input matInput type="number" placeholder="From" 
+                    [(ngModel)]="fromInput" (keyup)="convertFromToCurrency()">
+            
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="select-currency">
+                    
+                    <mat-select [(ngModel)]="fromOption" >
+                        <mat-option [value]="currencyName" *ngFor="let currencyName of currencyNames"
+                        (click) = "convertFromToCurrency()">{{currencyName}}</mat-option>
+                   </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutGap="10px" fxLayoutAlign="center">
+                <mat-form-field appearance="legacy">
+                    <span matPrefix>{{(getToCurrencySymbol())}}</span>
+                    <input matInput type="number" placeholder="To" 
+                    [(ngModel)]="toInput" (ngModelChange)="toInput=$event"
+                    (keyup)="reverseConversionFromToCurrency()">
+            
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="select-currency">
+                    
+                    <mat-select [(ngModel)]="toOption">
+                        <mat-option [value]="currencyName" *ngFor="let currencyName of currencyNames"
+                        (click) = "convertFromToCurrency()">{{currencyName}}</mat-option>
+                   </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>

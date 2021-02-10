@@ -1,0 +1,40 @@
+<section class = "length-section" fxLayout="column" fxLayoutAlign="center">
+    <mat-card  fxFlex.xs="100%" fxFlex="300px" >
+        <mat-card-title fxLayoutAlign="center" fxLayoutAlign.gt-sm="flex-start">Legnth Converter</mat-card-title>
+        
+        <mat-card-content  fxLayout="column">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutAlign="center" fxLayoutGap="10px">
+                <mat-form-field appearance="legacy">
+        
+                    <input matInput type="text" placeholder="From" 
+                    [(ngModel)]="fromInput" (keyup)="convertFromToLength()">
+                    <span matSuffix>{{(getFromLengthSymbol())}}</span>
+            
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="select-length">
+                    
+                    <mat-select [(ngModel)]="fromOption" >
+                        <mat-option [value]="lengthName" *ngFor="let lengthName of lengthNames"
+                        (click) = "convertFromToLength()">{{lengthName}}</mat-option>
+                   </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutGap="10px" fxLayoutAlign="center">
+                <mat-form-field appearance="legacy">
+                    
+                    <input matInput type="text" placeholder="To" 
+                    [(ngModel)]="toInput" (keyup)="reverseConversionFromToLength()">
+                    <span matSuffix>{{(getToLengthSymbol())}}</span>
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="select-length">
+                    
+                    <mat-select [(ngModel)]="toOption">
+                        <mat-option [value]="lengthName" *ngFor="let lengthName of lengthNames"
+                        (click) = "convertFromToLength()">{{lengthName}}</mat-option>
+                   </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>

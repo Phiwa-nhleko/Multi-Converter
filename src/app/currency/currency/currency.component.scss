@@ -1,0 +1,19 @@
+.currency-section {
+  padding: 30px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.currency-section {
+  .select-currency {
+    width: 60px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .card-title {
+    text-align: left;
+  }
+}
